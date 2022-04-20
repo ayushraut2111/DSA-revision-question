@@ -29,7 +29,7 @@ node* insertatlast(node* head,int x)
         return head;
     }
 }
-node* reversealist(node* head,int k)
+node* swapalist1(node* head)
 {
     if(head==NULL||head->next==NULL)
     {
@@ -37,7 +37,7 @@ node* reversealist(node* head,int k)
     }
     node* prev=NULL,*curr=head,*next;
     int count=0;
-    while(curr!=NULL&&count<k)    // first we will reverse a list in a size of k 
+    while(curr!=NULL&&count<2)    // first we will reverse a list in a size of k 
     {
         next=curr->next;
         curr->next=prev;
@@ -45,9 +45,23 @@ node* reversealist(node* head,int k)
         curr=next;
         count++;
     }
-    node* mainhead=reversealist(curr,k);   // then call the recursion for remaining node
+    node* mainhead=swapalist1(curr);   // then call the recursion for remaining node
     head->next=mainhead;     // joining the prev head to the returned new head of the remaining nodes because till this point our original head is still intact
     return prev;
+}
+node* swapalist2(node* head)
+{
+    if(head==NULL||head->next==NULL)
+    {
+        return head;
+    }
+    node* temp=head;
+    while(temp!=NULL&&temp->next!=NULL)
+    {
+        swap(temp->data,temp->next->data);
+        temp=temp->next->next;
+    }
+    return head;
 }
 void printclockwise(node* head)
 {
@@ -66,11 +80,15 @@ int main()
     head=insertatlast(head,3);
     head=insertatlast(head,4);
     head=insertatlast(head,5);
-    // head=insertatlast(head,6);
-    // head=insertatlast(head,7);
-    // head=insertatlast(head,8);
+    head=insertatlast(head,6);
+    head=insertatlast(head,7);
+    head=insertatlast(head,8);
     printclockwise(head);
     cout<<endl;
-    head=reversealist(head,3);
+    head=swapalist2(head);
     printclockwise(head);
 }
+
+// 1st method is to reverse 2 number and call for the remaining list and then join list
+
+// 2nd method is to run a loop and  swap the two data and move the next pointer to two positions ahead 
