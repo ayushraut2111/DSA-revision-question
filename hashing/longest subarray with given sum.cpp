@@ -45,4 +45,4 @@ int main()
 // the idea is to calculate the prefix sum of the elements till that element and keep checking if the current prefix sum is equal to the 
 //given sum then update the result and then check if the prefix sum is not yet in the map then push it into the map, push only the first
 // time because the left one will give us the longest subarray as we are moving right so after that check if we find the prefix sum
-// -sum if yes then update result with given index minus the index of that prefix sum-(given sum)
+// minus sum if yes then update result with given index minus the index of that prefix sum-(given sum)
