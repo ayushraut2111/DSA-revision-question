@@ -4,7 +4,7 @@ using namespace std;
 void leftgreater(int a[],int n)
 {
     int temp[n];
-    temp[0]=a[0];
+    temp[0]=-1;
     stack<int>s;
     s.push(a[0]);
     for(int i=1;i<n;i++)
