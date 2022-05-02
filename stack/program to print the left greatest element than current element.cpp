@@ -15,7 +15,7 @@ void leftgreater(int a[],int n)
         }
         if(s.empty())
         {
-            temp[i]=a[i];
+            temp[i]=-1;
         }
         else{
             temp[i]=s.top();
@@ -39,4 +39,4 @@ int main()
 
 // the idea behind is to first compare the element with its prev if it is smaller then take the left prev as that element and
 // if current element is greater than prev element then check with its prev and so on untill we found the greater element if 
-// the stack is empty that means there is no greater element so print that number itself
+// the stack is empty that means there is no greater element so print -1
