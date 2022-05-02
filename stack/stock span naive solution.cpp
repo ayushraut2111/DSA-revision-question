@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
-void stockspan(int a[],int n)
+void stockspan(int a[],int n)  // time complexity of this problem is 0(n^2)
 {
     int temp[n];
     temp[0]=1;
