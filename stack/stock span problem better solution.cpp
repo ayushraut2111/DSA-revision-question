@@ -16,7 +16,7 @@ void stockspan(int a[],int n)
        if(s.empty())
        {
            temp[i]=i+1;
-       }
+       } 
        else
        {
            temp[i]=i-s.top();
