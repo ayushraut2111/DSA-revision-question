@@ -37,6 +37,7 @@ int main()
     cout<<largestarea(a,n);
 }
 
-// the idea behind is to for a current element consider every left and right element of same size if the elements is greayer or 
-// same size and stop if we get the smaller element because we want largest rectange area which is obviously be continuous
-// do this for for every element for left side and right side both and after calculating for every element update the result
+// the idea behind is to for a current element consider every left and right element of same size if the elements is greater or 
+// same size and stop if we get the smaller element because we want largest rectangle area which is obviously be continuous as the 
+// sizes are parallel so we have to take same size as current element for left and right element do this for for every element for
+// left side and right side both and after calculating for every element update the result
