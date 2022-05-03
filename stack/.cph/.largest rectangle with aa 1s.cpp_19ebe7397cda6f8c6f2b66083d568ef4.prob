@@ -1,0 +1,1 @@
+{"name":"Local: largest rectangle with aa 1s","url":"d:\\DSA revision question\\stack\\largest rectangle with aa 1s.cpp","tests":[{"id":1651593946705,"input":"4 4 \n0 1 1 0\n1 1 1 1\n1 1 1 1\n1 1 0 0","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DSA revision question\\stack\\largest rectangle with aa 1s.cpp","group":"local","local":true}

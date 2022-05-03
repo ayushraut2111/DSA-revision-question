@@ -9,7 +9,7 @@ int largestarea(int a[],int n)
     left[0]=-1;
     for(int i=1;i<n;i++)
     {
-        while(!s1.empty()&&a[i]<a[s1.top()])
+        while(!s1.empty()&&a[i]<=a[s1.top()])
         {
             s1.pop();
         }
@@ -27,7 +27,7 @@ int largestarea(int a[],int n)
     s2.push(n-1);
     for(int i=n-2;i>=0;i--)
     {
-        while(!s2.empty()&&a[i]<a[s2.top()])
+        while(!s2.empty()&&a[i]<=a[s2.top()])
         {
             s2.pop();
         }
@@ -41,15 +41,15 @@ int largestarea(int a[],int n)
         }
         s2.push(i);
     }
-    for(int i=0;i<n;i++)
-    {
-        cout<<left[i]<<" ";
-    }
-    cout<<endl;
-    for(int i=0;i<n;i++)
-    {
-        cout<<right[i]<< " ";
-    }
+    // for(int i=0;i<n;i++)
+    // {
+    //     cout<<left[i]<<" ";
+    // }
+    // cout<<endl;
+    // for(int i=0;i<n;i++)
+    // {
+    //     cout<<right[i]<< " ";
+    // }
     cout<<endl;
     int res=0;
     for(int i=0;i<n;i++)
@@ -58,7 +58,6 @@ int largestarea(int a[],int n)
         curr+=(i-left[i]-1)*a[i];
         curr+=(right[i]-i-1)*a[i];
         res=max(res,curr);
-        cout<<curr<<endl;
     }
     return res;
 }
