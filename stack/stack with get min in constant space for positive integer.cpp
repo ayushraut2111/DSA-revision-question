@@ -30,7 +30,7 @@ struct mystack
         if(s.top()<0)
         {
             int temp=min;
-            min=temp+(-1)*s.top();
+            min=min-s.top();
             s.pop();
             return temp;
         }
