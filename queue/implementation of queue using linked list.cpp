@@ -87,3 +87,7 @@ int main()
     cout<<q.front()<<endl;   
     cout<<q.qsize()<<endl;
 }
+
+
+// we are pushing at the end of the list and deleting from the front of the list 
+// we can also do the opposite, we only have to take care that we are deleting and pushing from the different ends 
