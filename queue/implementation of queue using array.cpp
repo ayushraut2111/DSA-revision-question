@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 #define ll long long
 using namespace std;
-struct myqueue{
+class myqueue{
+    public:
     int size,cap;
     int *arr;
     myqueue(int cap)
