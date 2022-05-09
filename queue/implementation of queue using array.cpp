@@ -56,6 +56,10 @@ class myqueue{
         return arr[0];
     }
 
+    ~myqueue()
+    {
+        cout<<"end of the queue"<<endl;
+    }
 };
 int main()
 {
