@@ -2,9 +2,10 @@
 #define ll long long
 using namespace std;
 class myqueue{
-    public:
+    private:
     int size,cap;
     int *arr;
+    public:
     myqueue(int cap)
     {
         this->cap=cap;
