@@ -2,18 +2,12 @@
 #define ll long long
 using namespace std;
 struct dqueue{
-    int *arr;
-    int size,cap,front;
-    dqueue(int cap)
+    int *arr,size,cap;
+    dqueue(int x)
     {
-        this->cap=cap;
+        cap=x;
         arr=new int[cap];
         size=0;
-        front=0;
-    }
-    int getrear()   // this will give the location of the rear item
-    {
-        return (front+size-1)%cap;
     }
     bool isfull()
     {
@@ -28,71 +22,84 @@ struct dqueue{
         if(isfull())
         {
             cout<<"dequeue is full"<<endl;
-            return ;
+            return;
         }
-        front=(front-1+cap)%cap;
-        arr[front]=x;
+        if(size==0)
+        {
+            arr[size]=x;
         size++;
+        return ;
+        }
+        for(int i=size-1;i>=0;i--)
+        {
+            arr[i+1]=arr[i];
+        }
+        arr[0]=x;
+        size++;
+        return ;
     }
     void pushback(int x)
     {
         if(isfull())
         {
             cout<<"dequeue is full"<<endl;
-            return ;
+            return;
         }
-        int rear=getrear();
-        rear=(rear+1)%cap;
-        arr[rear]=x;
+        arr[size]=x;
         size++;
+        return ;
     }
     void popfront()
     {
         if(isempty())
         {
-            cout<<"deqeue is empty"<<endl;
+            cout<<"dequeue is empty"<<endl;
             return ;
         }
-        front=(front+1)%cap;
+        for(int i=0;i<size-1;i++)
+        {
+            arr[i]=arr[i+1];
+        }
         size--;
+        return ;
     }
     void popback()
     {
          if(isempty())
         {
-            cout<<"deqeue is empty"<<endl;
+            cout<<"dequeue is empty"<<endl;
             return ;
         }
         size--;
+        return ;
     }
-    int getfront()
+    int front()
     {
-        if(isempty())
+         if(isempty())
         {
             cout<<"dequeue is empty"<<endl;
             return -1;
         }
-        return arr[front];
+        return arr[0];
     }
     int rear()
     {
          if(isempty())
         {
-            cout<<"deqeue is empty"<<endl;
+            cout<<"dequeue is empty"<<endl;
             return -1;
         }
-        return arr[getrear()];
+        return arr[size-1];
     }
+
 };
 int main()
 {
-    dqueue dq(5);
+     dqueue dq(5);
     dq.pushfront(1);
     dq.pushfront(2);
     dq.pushback(3);
-    cout<<dq.rear()<<endl;
+    cout<<dq.front()<<endl;
     dq.popfront();
     dq.popback();
 }
-
-// in circular array we dont insert always at zero we maintain front and to insert at front we do (front-1+cap)%cap it is not necesaary that front will always be at 0 only
