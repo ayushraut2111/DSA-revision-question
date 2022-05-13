@@ -53,7 +53,7 @@ node* deletelastnode(node* root,node* ptr)  // this function is for deleting the
         cout<<"tree is empty"<<endl;
         return root;
     }
-    if(root==ptr)  // if root is the only node in the tree
+    if(root==ptr)  // if root is the only node in the tree 
     {
         delete(root);
         return NULL;
