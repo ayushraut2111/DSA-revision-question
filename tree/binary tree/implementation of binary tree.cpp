@@ -99,7 +99,7 @@ node* deletenode(node* root, int key)   // to delete the node first delete the l
         return root;
     }
     queue<node*>q;
-    node* datanode,*ptr;   // datanode to save the node which is to be deleted and ptr for the last node
+    node* datanode,*ptr;   // datanode to save the node which is to be deleted and ptr for the last node 
     q.push(root);
     while(!q.empty())
     {
