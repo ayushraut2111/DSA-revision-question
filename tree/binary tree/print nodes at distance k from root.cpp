@@ -74,6 +74,23 @@ void printk(node* root,int k)
         q.pop();
     }
 }
+void printkrecursive(node* root,int k)  // in recursive solution we go to left left untill the k dist is achieved then we print left one and then we go to right and print it
+{
+    if(root==NULL)
+    {
+        return ;
+    }
+    if(k==0)
+    {
+        cout<<root->data<<endl;
+    }
+    else
+    {
+        printkrecursive(root->left,k-1);
+        printkrecursive(root->right,k-1);
+
+    }
+}
 int main()
 {
     node* root=NULL;
@@ -83,5 +100,5 @@ int main()
     root=insert(root,4);
     root=insert(root,5);
     root=insert(root,7);
-    printk(root,2);
+    printkrecursive(root,2);
 }
