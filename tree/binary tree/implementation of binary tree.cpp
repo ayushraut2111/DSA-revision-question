@@ -147,7 +147,7 @@ void postordertraversal(node* root)
     inordertraversal(root->right);
     cout<<root->data<<endl;
 }
-void levelordertraversal(node* root)
+void levelordertraversal(node* root)  // this traversal is done level by level also lnown as bfs
 {
     if(root==NULL)
     {
@@ -171,6 +171,35 @@ void levelordertraversal(node* root)
         }
     }
 }
+void levelbyleveltraversal(node*root)  // this is also level order traversal but this will do traversal by taking care of all the elements at every level
+{
+    if(root==NULL)
+    {
+        cout<<"tree is empty"<<endl;
+        return ;
+    }
+    queue<node*>q;
+    q.push(root);
+    while(!q.empty())
+    {
+        int size=q.size(); // we are running a loop till size of that level because after we process every element at that level then the reamining node in the queue will be of next level so save the size at beginning so that we will traverse only the nodes of that level only after traversal only the nodes of next level will remain in the queue
+        for(int i=0;i<size;i++)
+        {
+            node* temp=q.front();
+            q.pop();
+            cout<<temp->data<<endl;
+            if(temp->left!=NULL)
+            {
+                q.push(temp->left);
+            }
+            if(temp->right!=NULL)
+            {
+                q.push(temp->right);
+            }
+        }
+
+    }
+}
 int main()
 {
     node* root=NULL;
@@ -180,4 +209,5 @@ int main()
     root=insert(root,31);
     root=insert(root,34);
     levelordertraversal(root);
+    levelbyleveltraversal(root);
 }
