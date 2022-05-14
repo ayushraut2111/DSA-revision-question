@@ -200,6 +200,34 @@ void levelbyleveltraversal(node*root)  // this is also level order traversal but
 
     }
 }
+bool searchtree(node* root,int key)
+{
+    if(root==NULL)
+    {
+        cout<<"tree is empty"<<endl;
+        return false;
+    }
+    queue<node*>q;
+    q.push(root);
+    while(!q.empty())
+    {
+        node* temp=q.front();
+        q.pop();
+        if(temp->data==key)
+        {
+            return true;
+        }
+        if(temp->left!=NULL)
+        {
+            q.push(temp->left);
+        }
+        if(temp->right!=NULL)
+        {
+            q.push(temp->right);
+        }
+    }
+    return false;
+}
 int main()
 {
     node* root=NULL;
@@ -209,5 +237,5 @@ int main()
     root=insert(root,31);
     root=insert(root,34);
     levelordertraversal(root);
-    levelbyleveltraversal(root);
+    searchtree(root,21)?cout<<"found":cout<<"not found"<<endl;
 }
