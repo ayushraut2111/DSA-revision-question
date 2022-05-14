@@ -147,7 +147,30 @@ void postordertraversal(node* root)
     inordertraversal(root->right);
     cout<<root->data<<endl;
 }
-
+void levelordertraversal(node* root)
+{
+    if(root==NULL)
+    {
+        cout<<"tree is empty"<<endl;
+        return ;
+    }
+    queue<node*>q;
+    q.push(root);
+    while(!q.empty())
+    {
+        node* ptr=q.front();
+        q.pop();
+        cout<<ptr->data<<endl;
+        if(ptr->left!=NULL)
+        {
+            q.push(ptr->left);
+        }
+        if(ptr->right!=NULL)
+        {
+            q.push(ptr->right);
+        }
+    }
+}
 int main()
 {
     node* root=NULL;
@@ -156,9 +179,5 @@ int main()
     root=insert(root,3);
     root=insert(root,31);
     root=insert(root,34);
-    inordertraversal(root);
-    root=deletenode(root,2);
-    cout<<endl;
-    inordertraversal(root);
-
+    levelordertraversal(root);
 }
