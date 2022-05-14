@@ -74,7 +74,7 @@ void printk(node* root,int k)
         q.pop();
     }
 }
-void printkrecursive(node* root,int k)  // in recursive solution we go to left left untill the k dist is achieved then we print left one and then we go to right and print it
+void printkrecursive(node* root,int k)  //in recursive solution we go to left left untill the k dist is achieved then we print left one and then we go to right and print it
 {
     if(root==NULL)
     {
