@@ -200,6 +200,29 @@ void levelbyleveltraversal(node*root)  // this is also level order traversal but
 
     }
 }
+void inorderiterative(node* root)
+{
+    if(root==NULL)
+    {
+        cout<<"tree is empty"<<endl;
+        return ;
+    }
+    stack<node*>s;
+    s.push(root);
+    node* curr=root;
+    while(curr!=NULL||!s.empty())
+    {
+        while(curr!=NULL)  // first it will go to the bottom most left side while pushing every left side node into the stack 
+        {
+            s.push(curr);
+            curr=curr->left;
+        }
+        curr=s.top();  // this node's left is null so we print it and then check for its right node and its left again
+        s.pop();
+        cout<<curr->data<<endl;   // if there is null on the right side too then it will go to the upper level and then print it and then check for its right side 
+        curr=curr->right;  // so for the upper level its left child is printed first then own then it will go to the right side
+    }
+}
 bool searchtree(node* root,int key)
 {
     if(root==NULL)
@@ -236,6 +259,6 @@ int main()
     root=insert(root,3);
     root=insert(root,31);
     root=insert(root,34);
-    levelordertraversal(root);
+    inorderiterative(root);
     searchtree(root,21)?cout<<"found":cout<<"not found"<<endl;
 }
