@@ -86,4 +86,4 @@ int main()
 }
 
 // the idea behind this approach is to first find the height of left and right subtree and then check if its heightdiff is less than or equal to 1
-// then we call for its left and right subtree recursively if both are also true then we return true else we retur false 
+// then we call for its left and right subtree recursively if both are also true then we return true else we return false 
