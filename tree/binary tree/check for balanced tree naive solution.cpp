@@ -81,10 +81,7 @@ int main()
     node* root=NULL;
     root=insert(root,1);
     root=insert(root,2);
-    root=insert(root,3);
-    root=insert(root,3);
-    root=insert(root,3);
-    root=insert(root,3);
+   root->left->left=new node(3);
     balancedtree(root)?cout<<"yes":cout<<"no";
 }
 
