@@ -15,7 +15,7 @@ bool pairsum(int a[],int n,int k)
     return false;
 }
 int main()
-{
+{ 
     int n;
     cin>>n;
     int a[n];
