@@ -44,4 +44,4 @@ int main()
 }
 // the idea behind solving this problem is to subtract the one array from another and we have to find the common sum span so when we 
 // reduce one array from another and they both have same sum then their sum will be zero so after subtracting we have to find the 
-// longest subaray with the zero sum in that reduced subarray
+// longest subaray with the zero sum in that reduced subarray.
