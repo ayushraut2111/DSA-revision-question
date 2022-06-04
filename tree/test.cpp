@@ -12,5 +12,5 @@ int main()
         cout<<"found at"<<find(v.begin(),v.end(),2)-v.begin();
     }
     else
-    cout<<"not found";
+    cout<<"not found"<<endl;
 }
