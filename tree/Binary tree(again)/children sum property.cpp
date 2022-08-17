@@ -77,8 +77,8 @@ int main()
     root=insert(root,20);
     root=insert(root,8);
     root=insert(root,12);
-    root=insert(root,3);
-    root=insert(root,5);
+    root=insert(root,8);
+    // root=insert(root,5);
    
     childsum(root)?cout<<"true":cout<<"false";
 }
