@@ -150,6 +150,80 @@ bool searchtree(node* root,int data)
     }
     return false;
 }
+node* deletelast(node* root,node* ptr)
+{
+    if(root==NULL)
+    {
+        return root;
+    }
+    queue<node*>q;
+    q.push(root);
+    while(!q.empty())
+    {
+        node* temp=q.front();
+        q.pop();
+        if(temp->right!=NULL)
+        {
+            if(temp->right==ptr)
+            {
+                temp->right=NULL;
+                delete(ptr);
+                return root;
+            }
+            else
+            {
+                q.push(temp->right);
+            }
+        }
+        if(temp->left!=NULL)
+        {
+            if(temp->left==ptr)
+            {
+                temp->left=NULL;
+                delete(ptr);
+                return root;
+            }
+            else
+            {
+                q.push(temp->left);
+            }
+        }
+    }
+}
+node* deletekey(node* root,int data)
+{
+    if(root==NULL)
+    {
+        cout<<"tree is empty"<<endl;
+        return NULL;
+    }
+    queue<node*>q;
+    q.push(root);
+    node*datakey,*ptr;
+    while(!q.empty())
+    {
+        ptr=q.front();
+        q.pop();
+        if(ptr->data==data)
+        {
+            datakey=ptr;
+        }
+        if(ptr->left!=NULL)
+        {
+            q.push(ptr->left);
+        }
+        if(ptr->right!=NULL)
+        {
+            q.push(ptr->right);
+        }
+    }
+
+    int x=ptr->data;
+    root=deletelast(root,ptr);
+    if(ptr!=datakey) // this condition is used to handle if last node is the node which is to be deleted
+    datakey->data=x;
+    return root;
+}
 int main()
 {
     node* root=NULL;
@@ -158,5 +232,7 @@ int main()
     root=insert(root,3);
     levelorder_traversal(root);
     cout<<endl;
-    searchtree(root,7)?cout<<"key found":cout<<"key not found"<<endl;
+    // searchtree(root,7)?cout<<"key found":cout<<"key not found"<<endl;
+    root=deletekey(root,3);
+    levelbyleveltraversal(root);
 }
