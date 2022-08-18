@@ -43,9 +43,8 @@ node* ceil(node* root,int x)
         return temp;
         else if(temp->data>x)
         {
-            res=temp;
+        res=temp;
         temp=temp->left;
-
         }
         else
         {
