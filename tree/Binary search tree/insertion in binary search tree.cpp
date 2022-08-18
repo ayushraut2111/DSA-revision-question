@@ -56,6 +56,17 @@ node *iterative_insert(node* root,int data)
     parent->right=ptr;
     return root;
 }
+bool searchtree(node* root,int x)
+{
+    if(root==NULL)
+    return false;
+    if(x==root->data)
+    return true;
+    else if(x<root->data)
+    searchtree(root->left,x);
+    else
+    searchtree(root->right,x);
+}
 void inorder(node* root)
 {
     if(root==NULL)
@@ -72,4 +83,6 @@ int main()
     root=insert(root,3);
     root=iterative_insert(root,-3);
     inorder(root);
+    cout<<endl;
+    searchtree(root,31)?cout<<"found":cout<<"not found";
 }
