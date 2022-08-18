@@ -67,6 +67,45 @@ bool searchtree(node* root,int x)
     else
     searchtree(root->right,x);
 }
+node* getsuccessor(node* root)
+{
+    root=root->right;
+    while(root!=NULL&&root->left!=NULL)
+    {
+        root=root->left;
+    }
+    return root;
+}
+node *delete_node(node* root,int x)
+{
+    if(root==NULL)
+    return NULL;
+    if(x<root->data)
+    {
+        root->left=delete_node(root->left,x);
+    }
+    else if(x>root->data)
+    {
+        root->right=delete_node(root->right,x);
+    }
+    else
+    {
+        if(root->left==NULL&&root->right==NULL)
+        return NULL;
+        if(root->left==NULL)
+        return root->right;
+        if(root->right==NULL)
+        return root->left;
+        else
+        {
+            node *succ=getsuccessor(root);
+            root->data=succ->data;
+            root->right=delete_node(root->right,succ->data);
+            return root;
+        }
+    }
+    return root;
+}
 void inorder(node* root)
 {
     if(root==NULL)
@@ -85,4 +124,6 @@ int main()
     inorder(root);
     cout<<endl;
     searchtree(root,31)?cout<<"found":cout<<"not found";
+    root=delete_node(root,-3);
+    inorder(root);
 }
