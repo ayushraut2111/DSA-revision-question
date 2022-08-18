@@ -29,6 +29,33 @@ node* insert(node* root,int data)
     }
     return root;
 }
+node *iterative_insert(node* root,int data)
+{
+    node* ptr=new node(data);
+    if(root==NULL)
+    {
+        root=ptr;
+        return root;
+    }
+    node* temp=root,*parent=NULL;
+    while(temp!=NULL)
+    {
+        parent=temp;
+        if(data<temp->data)
+        {
+            temp=temp->left;
+        }
+        else
+        {
+            temp=temp->right;
+        }
+    }
+    if(data<parent->data)
+    parent->left=ptr;
+    else
+    parent->right=ptr;
+    return root;
+}
 void inorder(node* root)
 {
     if(root==NULL)
@@ -43,6 +70,6 @@ int main()
     root=insert(root,1);
     root=insert(root,2);
     root=insert(root,3);
-    root=insert(root,-3);
+    root=iterative_insert(root,-3);
     inorder(root);
 }
