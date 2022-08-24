@@ -38,6 +38,25 @@ struct minheap{
             i=parent(i);
         }
     }
+    void minheapify(int i)
+    {
+        int lt=lchild(i);
+        int rt=rchild(i);
+        int smallest=i;
+        if(lt<size&&arr[i]>arr[lt])
+        {
+            smallest=lt;
+        }
+        if(rt<size&&arr[smallest]>arr[rt])
+        {
+            smallest=rt;
+        }
+        if(smallest!=i)
+        {
+            swap(arr[i],arr[smallest]);
+            minheapify(smallest);
+        }
+    }
 };
 int main()
 {
