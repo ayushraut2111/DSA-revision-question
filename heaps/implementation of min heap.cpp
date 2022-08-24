@@ -10,7 +10,34 @@ struct minheap{
         size=0;
         arr=new int[cap];
     }
-    
+    int lchild(int i)
+    {
+        return 2*i+1;
+    }
+    int rchild(int i)
+    {
+        return 2*i+2;
+    }
+    int parent(int i)
+    {
+        return (i-1)/2;
+    }
+    void insertheap(int x)
+    {
+        if(size==cap)
+        {
+            cout<<"heap is full"<<endl;
+            return;
+        }
+        arr[size]=x;
+        size++;
+        int i=size-1;
+        while(arr[i]<arr[parent(i)]&&i!=0)
+        {
+            swap(arr[i],arr[parent(i)]);
+            i=parent(i);
+        }
+    }
 };
 int main()
 {
