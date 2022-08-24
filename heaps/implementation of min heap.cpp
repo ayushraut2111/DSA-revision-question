@@ -57,6 +57,32 @@ struct minheap{
             minheapify(smallest);
         }
     }
+    void buildheap()
+    {
+        for( int i=parent(size-1);i>=0;i--)
+        {
+            minheapify(i);
+        }
+    }
+    int extractmin()
+    {
+        if(size==0)
+        {
+            cout<<"heap is empty"<<endl;
+            return INT_MAX;
+        }
+        if(size==1)
+        {
+            size--;
+            return arr[0];
+        }
+        int x=arr[0];
+        swap(arr[0],arr[size-1]);
+        size--;
+        minheapify(0);
+        return x;
+
+    }
 };
 int main()
 {
