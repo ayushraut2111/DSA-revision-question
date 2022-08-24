@@ -95,6 +95,13 @@ struct minheap{
     size--;
     minheapify(0);
     }
+    void buildminheap()
+    {
+        for(int i=parent(size-1);i>=0;i--)
+        {
+            minheapify(i);
+        }
+    }
 };
 int main()
 {
