@@ -83,6 +83,18 @@ struct minheap{
         return x;
 
     }
+    void deletekey(int i)
+    {
+        arr[i]=INT_MIN;
+        while(i!=0&&arr[i]<arr[parent(i)])
+    {
+        swap(arr[i],arr[parent(i)]);
+        i=parent(i);
+    }
+    swap(arr[0],arr[size-1]);
+    size--;
+    minheapify(0);
+    }
 };
 int main()
 {
