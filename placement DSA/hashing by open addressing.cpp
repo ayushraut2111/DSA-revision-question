@@ -66,6 +66,27 @@ struct Myhash{
             cout<<arr[i]<<endl;
         }
     }
+    void search(int x)
+    {
+        int key=x%cap;
+        if(arr[key]==x)
+        {
+            cout<<"found"<<endl;
+            return ;
+        }
+        int temp=(key+1)%cap;
+        while(arr[key]!=NULL&&key!=temp)
+        {
+            if(arr[key]==x)
+            {
+                cout<<"found"<<endl;
+                return ;
+            }
+            key=(key+1)%cap;
+        }
+        cout<<"not found"<<endl;
+
+    }
 };
 int main()
 {
@@ -73,8 +94,6 @@ int main()
     h.inserthash(1);
     h.inserthash(1);
     h.inserthash(1);
-    h.deletehash(1);
-    h.deletehash(1);
-    h.deletehash(1);
+    h.search(2);
     h.printhash();
 }
