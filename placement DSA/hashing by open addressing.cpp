@@ -34,10 +34,34 @@ struct Myhash{
         arr[key]=x;
         size++;
     }
-    
+    void deletehash(int x)
+    {
+        int key=x%cap;
+        if(arr[key]==x)
+        {
+            arr[key]=-1;
+            return ;
+        }
+        int temp=key;
+        key=(key+1)%cap;
+        while(arr[key]!=NULL&&temp!=key)
+        {
+            if(arr[key]==x)
+        {
+            arr[key]=-1;
+            return ;
+        }
+            key=(key+1)%cap;
+        }
+        if(arr[key]==NULL||temp==key)
+        {
+            cout<<"not found"<<endl;
+            return ;
+        }
+    }
     void printhash()
     {
-        for(int i=0;i<size;i++)
+        for(int i=0;i<cap;i++)
         {
             cout<<arr[i]<<endl;
         }
@@ -49,5 +73,8 @@ int main()
     h.inserthash(1);
     h.inserthash(1);
     h.inserthash(1);
+    h.deletehash(1);
+    h.deletehash(1);
+    h.deletehash(1);
     h.printhash();
 }
