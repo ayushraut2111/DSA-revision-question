@@ -34,6 +34,7 @@ struct Myhash{
         arr[key]=x;
         size++;
     }
+    
     void printhash()
     {
         for(int i=0;i<size;i++)
