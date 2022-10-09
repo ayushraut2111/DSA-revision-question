@@ -47,6 +47,18 @@ class llist:
         ptr.prev=temp
         return
 
+    def deletebegin(self):
+        if self.head is None:
+            print("list is empty")
+            return
+        if self.head.next is None:
+            self.head=None
+            return
+        self.head=self.head.next
+        self.head.prev=None
+        return
+
+
 
     def printclockwise(self):  
         temp=self.head
@@ -67,5 +79,6 @@ if __name__=="__main__":
     head.insertlast(1)
     head.insertlast(2)
     head.insertlast(3)
-    head.insertrandom(3,6)
+    head.insertrandom(4,6)
+    head.deletebegin()
     head.printanticlockwise()
