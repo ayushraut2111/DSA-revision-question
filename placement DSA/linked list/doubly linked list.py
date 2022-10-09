@@ -1,6 +1,3 @@
-from pydoc import tempfilepager
-
-
 class node:
     def __init__(self,x):
         self.data=x
