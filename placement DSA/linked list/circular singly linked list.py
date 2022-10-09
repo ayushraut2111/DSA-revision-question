@@ -95,7 +95,7 @@ class llist:
             temp=temp.next
         ptr.next=temp.next
 
-    def searchlist(self,x):
+    def searchlist(self,x):    # searching in a linked list
         if self.head is x:
             print("found at location 1")
             return
