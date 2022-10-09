@@ -124,6 +124,5 @@ if __name__=="__main__":
     head.insertlast(2)
     head.insertlast(3)
     head.insertrandom(4,6)
-
     head.printclockwise()
     head.searchlist(6)
