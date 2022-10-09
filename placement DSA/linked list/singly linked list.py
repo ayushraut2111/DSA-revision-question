@@ -39,7 +39,7 @@ class llist:
         temp.next=ptr
 
 
-    def deletebegin(self):
+    def deletebegin(self):   # deleting at the beginning of a list
         if self.head==None:
             print("list is empty")
             return
@@ -47,6 +47,20 @@ class llist:
             self.head=None
             return
         self.head=self.head.next
+
+    def deletelast(self):
+        if self.head==None:
+            print("list is empty")
+            return
+        if self.head.next==None:
+            self.head=None
+            return
+        temp=self.head
+        ptr=None
+        while temp.next is not None:
+            ptr=temp
+            temp=temp.next
+        ptr.next=None
 
     def printnode(self):
         temp=self.head
@@ -60,4 +74,6 @@ if __name__=="__main__":
     head.insertlast(2)
     head.insertlast(3)
     head.insertrandom(4,4)
+    head.deletelast()
+    head.deletelast()
     head.printnode()
