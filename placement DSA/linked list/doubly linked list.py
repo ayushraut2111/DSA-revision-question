@@ -72,8 +72,8 @@ class llist:
             temp=temp.next
         temp.prev=None
         p.next=None
-
-    def deleterandom(self,loc):
+ 
+    def deleterandom(self,loc):    # random deletion in list
         if self.head.next is None:
             self.head=None
             return
@@ -91,6 +91,18 @@ class llist:
             temp.next.prev=ptr
         temp.next=None
         temp.prev=None
+ 
+    def searchlist(self,x):   # searching in a list
+        if self.head.data==x:
+            print("found")
+            return
+        temp=self.head
+        while temp is not None:
+            if temp.data==x:
+                print("found")
+                return
+            temp=temp.next
+        print("not found")
 
     def printclockwise(self):  
         temp=self.head
@@ -112,5 +124,6 @@ if __name__=="__main__":
     head.insertlast(2)
     head.insertlast(3)
     head.insertrandom(4,6)
-    head.deleterandom(2)
-    head.printanticlockwise()
+
+    head.printclockwise()
+    head.searchlist(6)
