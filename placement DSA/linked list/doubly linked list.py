@@ -15,7 +15,17 @@ class llist:
         ptr.next=self.head
         self.head.prev=ptr
         self.head=ptr
-        return
+        
+    def insertlast(self,x):
+        ptr=node(x)
+        if self.head==None:
+            self.head=ptr
+            return
+        temp=self.head
+        while temp.next is not None:
+            temp=temp.next
+        temp.next=ptr
+        ptr.prev=temp
     
     def printclockwise(self):
         temp=self.head
@@ -33,7 +43,7 @@ class llist:
 
 if __name__=="__main__":
     head=llist()
-    head.insertbegin(1)
-    head.insertbegin(2)
-    head.insertbegin(3)
-    head.printclockwise()
+    head.insertlast(1)
+    head.insertlast(2)
+    head.insertlast(3)
+    head.printanticlockwise()
