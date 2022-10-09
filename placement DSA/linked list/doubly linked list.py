@@ -1,3 +1,6 @@
+from pydoc import tempfilepager
+
+
 class node:
     def __init__(self,x):
         self.data=x
@@ -47,7 +50,7 @@ class llist:
         ptr.prev=temp
         return
 
-    def deletebegin(self):
+    def deletebegin(self):   # deletion from the begining of list
         if self.head is None:
             print("list is empty")
             return
@@ -58,7 +61,17 @@ class llist:
         self.head.prev=None
         return
 
-
+    def deletelast(self):
+        if self.head.next is None:
+            self.head=None
+            return
+        temp=self.head
+        p=None
+        while temp.next is not None:
+            p=temp
+            temp=temp.next
+        temp.prev=None
+        p.next=None
 
     def printclockwise(self):  
         temp=self.head
@@ -80,5 +93,5 @@ if __name__=="__main__":
     head.insertlast(2)
     head.insertlast(3)
     head.insertrandom(4,6)
-    head.deletebegin()
-    head.printanticlockwise()
+    head.deletelast()
+    head.printclockwise()
