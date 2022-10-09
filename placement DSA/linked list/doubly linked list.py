@@ -16,7 +16,7 @@ class llist:
         self.head.prev=ptr
         self.head=ptr
         
-    def insertlast(self,x):
+    def insertlast(self,x):  #insertion at last of a list
         ptr=node(x)
         if self.head==None:
             self.head=ptr
@@ -27,7 +27,28 @@ class llist:
         temp.next=ptr
         ptr.prev=temp
     
-    def printclockwise(self):
+    def insertrandom(self,loc,x):    # insertion at random position
+        ptr=node(x)
+        if self.head==None:
+            self.head=ptr
+            return
+        if loc==1:
+            ptr.next=self.head
+            self.head.prev=ptr
+            self.head=ptr
+            return
+        temp=self.head
+        for i in range(loc-2):
+            temp=temp.next
+        ptr.next=temp.next
+        if temp.next is not None:
+            temp.next.prev=ptr
+        temp.next=ptr
+        ptr.prev=temp
+        return
+
+
+    def printclockwise(self):  
         temp=self.head
         while temp is not None:
             print(temp.data)
@@ -46,4 +67,5 @@ if __name__=="__main__":
     head.insertlast(1)
     head.insertlast(2)
     head.insertlast(3)
+    head.insertrandom(3,6)
     head.printanticlockwise()
