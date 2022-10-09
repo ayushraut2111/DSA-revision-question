@@ -61,7 +61,7 @@ class llist:
         self.head.prev=None
         return
 
-    def deletelast(self):
+    def deletelast(self):    # deleting last from a list
         if self.head.next is None:
             self.head=None
             return
@@ -72,6 +72,25 @@ class llist:
             temp=temp.next
         temp.prev=None
         p.next=None
+
+    def deleterandom(self,loc):
+        if self.head.next is None:
+            self.head=None
+            return
+        if loc==1:
+            self.head=self.head.next
+            self.head.prev=None
+            return
+        temp=self.head
+        ptr=None
+        for i in range(loc-1):
+            ptr=temp
+            temp=temp.next
+        ptr.next=temp.next
+        if temp.next is not None:
+            temp.next.prev=ptr
+        temp.next=None
+        temp.prev=None
 
     def printclockwise(self):  
         temp=self.head
@@ -93,5 +112,5 @@ if __name__=="__main__":
     head.insertlast(2)
     head.insertlast(3)
     head.insertrandom(4,6)
-    head.deletelast()
-    head.printclockwise()
+    head.deleterandom(2)
+    head.printanticlockwise()
