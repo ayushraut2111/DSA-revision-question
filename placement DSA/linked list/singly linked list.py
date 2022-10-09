@@ -76,8 +76,19 @@ class llist:
             temp=temp.next
         ptr.next=temp.next
 
-        
-    def printnode(self):
+    def searchlist(self,data):   # searching of a element in a list
+        if self.head.data==data:
+            print("found")
+            return
+        temp=self.head
+        while temp is not None:
+            if temp.data==data:
+                print("found")
+                return
+            temp=temp.next
+        print("not found")
+            
+    def printnode(self):   # printing of a list 
         temp=self.head
         while temp is not None:
             print(temp.data)
@@ -89,5 +100,5 @@ if __name__=="__main__":
     head.insertlast(2)
     head.insertlast(3)
     head.insertrandom(4,4)
-    head.deleterandom(4)
+    head.searchlist(4)
     head.printnode()
