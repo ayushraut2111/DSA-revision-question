@@ -43,6 +43,19 @@ class graph:
             if visited[i]== False:
                 self.bfs(i,visited)
 
+    def dfs(self,visited,i):    # this is a DFS f(n)
+        visited[i]=True
+        print(i,end=" ")
+        for x in self.a[i]:
+            if visited[x]==False:
+                self.dfs(visited,x)
+        
+    def dfs_dis(self):     # this is a dfs f(n) which is used to call a dfs of connected as well as disconnected graph
+        visited=[False for i in range(len(self.a))]
+        for i in range(len(self.a)):
+            if visited[i]==False:
+                self.dfs(visited,i)
+
 
 if __name__=="__main__":
     g1=graph(4)
@@ -50,4 +63,4 @@ if __name__=="__main__":
     g1.add_vertex(0,2)
     g1.add_vertex(1,2)
     g1.add_vertex(1,3)
-    g1.bfs_dis()
+    g1.dfs_dis()
