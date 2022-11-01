@@ -12,6 +12,23 @@ class graph:
             for j in i:
                 print(j,end=" ")
             print()
+
+    def check_cycle(self,visited,i):
+        q=[]
+        q.append(i)
+        evisited=[False for i in range(self.n)]
+        count=0
+        while q:
+            r=q.pop(0)
+            if i==r and count!=0:
+                return True
+            for j in range(self.n):
+                if visited[j]==True and self.a[r][j]!=0 and evisited[j]==False:
+                    q.append(j)
+                    evisited[j]=True
+            count+=1
+        return False
+
     def kruskal(self):
         visited=[False for i in range(self.n)]
         prm=[]   # in this array our minimum spanning tree will be saved
@@ -22,24 +39,33 @@ class graph:
                 if self.a[i][j]!=0: 
                     array.append((self.a[i][j],i,j))   # in array we will save all the costs and vertex in minimum order for this we sort it
         array.sort()
-        # print(array)
+        print(array)
         for i in array:
-            if not visited[i[1]] or not visited[i[2]]:   # if any one of the index is not visited that means there will be no cycle formed when we connect those edges
+            if not self.check_cycle(visited,i[1]):   
                 prm.append(i)
                 visited[i[1]]=True
                 visited[i[2]]=True
                 ans+=i[0]
         for i in prm:
-            print(str(i[0])+"-"+str(i[1])+" "+str(i[2]))
+            print(str(i[1])+"-"+str(i[2])+" "+str(i[0]))
         print("minimum spanning tree cost is "+ str(ans))
 
 
 
 if __name__=="__main__":
-    g1=graph(4)
-    g1.add_vertex(0,1,5)
-    g1.add_vertex(0,2,8)
-    g1.add_vertex(1,3,15)
-    g1.add_vertex(1,2,10)
-    g1.add_vertex(2,3,20)
+    g1=graph(9)
+    g1.add_vertex(7,6,1)
+    g1.add_vertex(8,2,2)
+    g1.add_vertex(6,5,2)
+    g1.add_vertex(0,1,4)
+    g1.add_vertex(2,5,4)
+    g1.add_vertex(8,6,6)
+    g1.add_vertex(2,3,7)
+    g1.add_vertex(7,8,7)
+    g1.add_vertex(0,7,8)
+    g1.add_vertex(1,2,8)
+    g1.add_vertex(3,4,9)
+    g1.add_vertex(5,4,10)
+    g1.add_vertex(1,7,11)
+    g1.add_vertex(3,5,14)
     g1.kruskal()
