@@ -3,7 +3,7 @@ class graph:
         self.a=[[0 for i in range(n)] for i in range(n)]
         self.n=n
     
-    def add_vertex(self,u,v,x):
+    def add_vertex(self,u,v,x=1):
         self.a[u][v]=x
         self.a[v][u]=x
     
