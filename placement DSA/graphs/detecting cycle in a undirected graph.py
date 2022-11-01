@@ -13,6 +13,25 @@ class graph:
                 print(j,end=" ")
             print()
 
+    def cycle(self,visited,i,parent):
+        visited[i]=True
+        for j in range(self.n):
+            if visited[j]==False and self.a[i][j]!=0:
+                if self.cycle(visited,j,i)==True:
+                    return True
+            elif j!=parent and self.a[i][j]!=0:
+                return True
+        return False
+                
+
+    def cycle_main(self):
+        visited=[False for i in range(self.n)]
+        for i in range(self.n):
+            if visited[i]==False:
+                if self.cycle(visited,i,-1)==True:
+                    return True
+        return False
+
 if __name__=="__main__":
     g1=graph(6)
     g1.add_vertex(0,1)
@@ -21,5 +40,8 @@ if __name__=="__main__":
     g1.add_vertex(2,3)
     g1.add_vertex(2,4)
     g1.add_vertex(4,5)
-    g1.prnt()
+    if g1.cycle_main():
+        print("cycle found")
+    else:
+        print("cycle not found")
     
