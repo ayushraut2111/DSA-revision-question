@@ -15,6 +15,7 @@ int main()
     for(int i=2;i<=n;i++)
     {
         int x=prev+prev1;
+        
         prev=prev1;
         prev1=x;
     }
